@@ -28,6 +28,7 @@ combination of all the multi-layers is better? If better, how better?
 |content|style|
 |:-----:|:----:|
 |![](./images/amber.jpg)|![](./images/photo.jpg)|
+
 The style transfer result is :
 
 |config|result|

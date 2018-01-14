@@ -73,7 +73,7 @@ def train(content_img_name=None, style_img_name=None, features=None):
         features_y = features(y)
         features_x = features(x)
 
-        loss_content = mse_loss(features_y.relu2_2, features_x.relu2_2)
+        loss_content = mse_loss(features_y[1], features_x[1])
 
         loss_style = 0.
         for ft_y, gm_s in zip(features_y, gram_style):

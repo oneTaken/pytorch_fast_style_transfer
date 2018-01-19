@@ -5,6 +5,7 @@ Transfer and Super-Resolution". arxiv link [1603.08155](https://arxiv.org/abs/16
 Contents:
 + [Contribution](#contribution)
 + [Intuition](#intuition)
++ [Requirements](#requirements)
 + [Results](#results)
 + [References](#references)
 
@@ -20,9 +21,16 @@ Contents:
 What's the role of the feature model played on the transformer model?
 + How to set the layer set `J`. One certain layer is hard to choose for the perceptual loss, so the 
 combination of all the multi-layers is better? If better, how better? 
-+ What about different layer set `J`?
++ What about different layer set `J`? It's seemingly a trade-off to choose 
+all the middle-level feature representations in condition of no clear and exact
+formulation on the style.
 + And should different layers have the same weight? Should they have a personal weight on the style loss?
 + What's the content, and what's the style?
+
+### Requirements
++ pytorch 0.3
++ torchvision
++ PIL
 
 ### Results
 |content|style|
@@ -79,7 +87,7 @@ The content loss and style loss of different feature representations,i.e. the `t
 `img2` is most similar to `img3`, both content and style. It's general to both two feature 
 representation models. Maybe they are both architectures.
 + ~~Considering specific value, `resnet101` loss is smaller than `vgg16`. Better feature 
-representations would have a better perceptual loss.~~ Can the different loss on the different
+representations would have a better perceptual loss.~~ Can the different loss values on the different
 feature representations be comparable? Is it meaningful? The tendency is the same, 
 whether it indicates that the specific value is not important?
 ### References

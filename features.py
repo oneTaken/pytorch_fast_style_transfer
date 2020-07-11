@@ -9,7 +9,7 @@ from torchvision import models
 class Vgg16(torch.nn.Module):
     def __init__(self, requires_grad=False):
         super(Vgg16, self).__init__()
-        self.model_path = './models/vgg16.pth'
+        self.model_path = './pretrained/vgg16.pth'
         if os.path.exists(self.model_path):
             vgg = models.vgg16(pretrained=False)
             vgg.load_state_dict(torch.load(self.model_path))
@@ -49,7 +49,7 @@ class Vgg16(torch.nn.Module):
 class Resnet101(torch.nn.Module):
     def __init__(self):
         super(Resnet101, self).__init__()
-        self.model_path = './models/resnet101.pth'
+        self.model_path = './pretrained/resnet101.pth'
         if os.path.exists(self.model_path):
             resnet101_pretrained = models.resnet101(pretrained=False)
             pretrained_state_dict = torch.load(self.model_path)

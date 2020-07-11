@@ -8,7 +8,7 @@ import time
 
 print('the current process is {}.'.format(os.getpid()))
 exp_num = 3
-iteration_total = 1e4
+iteration_total = 1e2
 gpus = [2]
 use_cuda = torch.cuda.is_available() and len(gpus)
 if use_cuda:
@@ -87,7 +87,7 @@ def train(content_img_name=None, style_img_name=None, features=None):
         # log show
         count += 1
         msg = '{}\titeration: {}\tcontent: {:.6f}\tstyle: {:.6f}\ttotal: {:.6f}\n'.format(
-            time.ctime(), count, loss_content.data[0], loss_style.data[0], total_loss.data[0])
+            time.ctime(), count, loss_content.item(), loss_style.item(), total_loss.item())
         log.append(msg)
         if count % 50 == 0:
             print(''.join(log))
